@@ -8,12 +8,12 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    steps: 
-    -name: Checkout Code
-    - uses: actions/checkout@v5
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
 
-    -name: Node setup
-    - uses: actions/setup-node@v5
+    - name: Node Setup
+      uses: actions/setup-node@v5
       with:
         node-version: 22
       
@@ -25,7 +25,7 @@ jobs:
       
     - name: Run E2E tests
       run: npx playwright test
-      
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
